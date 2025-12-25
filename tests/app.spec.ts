@@ -3,7 +3,7 @@ import {expect, test} from '@playwright/test';
 test('トップページが表示される', async ({page}) => {
   await page.goto('/');
   // タイトルの評価
-  await expect(page).toHaveTitle(/playwright-tutorial/);
+  await expect(page).toHaveTitle('playwright-tutorial');
 });
 
 test('カウンターボタンをクリックすると値が増える', async ({page}) => {
@@ -11,11 +11,11 @@ test('カウンターボタンをクリックすると値が増える', async ({
   // ボタンのLocatorを取得
   const counter = page.getByRole('button', {name: 'count is'});
   // Locatorのテキストを評価
-  await expect(counter).toHaveText(/count is 0/);
+  await expect(counter).toHaveText('count is 0');
   // Locatorの操作
   await counter.click();
   // Locatorのテキストを評価
-  await expect(counter).toHaveText(/count is 1/);
+  await expect(counter).toHaveText('count is 1');
 });
 
 test('Viteロゴ画像をクリックすると公式サイトに遷移する', async ({page, context}) => {
@@ -29,5 +29,5 @@ test('Viteロゴ画像をクリックすると公式サイトに遷移する', a
   // 新しいページの取得とURLの評価
   const newPage = await newPagePromise;
   await newPage.waitForLoadState();
-  await expect(newPage).toHaveURL(/https:\/\/vite\.dev/);
+  await expect(newPage).toHaveURL('https://vite.dev/');
 });
