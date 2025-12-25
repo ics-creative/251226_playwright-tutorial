@@ -1,0 +1,40 @@
+name: Playwright E2Eテスト
+
+on: pull_request
+
+jobs:
+  e2e:
+    name: Playwright ブラウザE2Eテスト
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.js をセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: 依存関係をインストール
+        run: npm ci
+
+      - name: Playwrightブラウザをインストール
+        run: npx playwright install --with-deps
+
+      - name: E2Eテストを実行
+        run: npx playwright test
+
+      - name: テストレポートを保存
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Playwright_test_report
+          path: playwright-report/
+
+      - name: テストトレースを保存
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Playwright_test_traces
+          path: test-results/
