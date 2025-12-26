@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "e2eTest": "npx playwright test"
+    "e2eTest": "playwright test"
   },
   "devDependencies": {
     "@playwright/test": "^1.57.0",
