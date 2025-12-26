@@ -3,7 +3,7 @@ import {defineConfig, devices} from '@playwright/test';
 export default defineConfig({
   // テストの配置ディレクトリを指定
   testDir: './tests',
-  // テスト実行時に使用するウェブサーバー指定
+  // テスト実行時に使用するウェブサーバーを指定
   webServer: {
     command: 'npm run dev -- --port 5180',
     url: 'http://localhost:5180',
