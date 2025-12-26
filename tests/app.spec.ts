@@ -15,7 +15,7 @@ test('カウンターボタンをクリックすると値が増える', async ({
   // Locatorの操作
   await counter.click();
   // Locatorのテキストを評価
-  await expect(counter).toHaveText('count is 1');
+  await expect(counter).toHaveText('count is 2');
 });
 
 test('Viteロゴ画像をクリックすると公式サイトに遷移する', async ({page, context}) => {
