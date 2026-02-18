@@ -15,7 +15,9 @@ export default defineConfig({
     baseURL: 'http://localhost:5180/',
     // ブラウザをヘッドレスで起動するかどうか
     headless: true,
-    // トレースを常に有効化（高負荷なので、普段の開発では'retain-on-failure'がおすすめ）
+    // 本記事では動作確認のためトレースを常に有効化（'on'）
+    // 実際の運用では'retain-on-failure'（失敗時のみ保存）や
+    // CIでは'on-first-retry'（再実行時のみ保存）の利用を推奨
     trace: 'on',
   },
   // テスト実行環境のバリエーションを指定
